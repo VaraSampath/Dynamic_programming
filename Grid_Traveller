@@ -9,5 +9,29 @@ def grid_traveller(m,n):
             if j +1<= n:l[i][j+1]+=cur
             if i+1<=m: l[i+1][j]+=cur
     return l[m][n]
-    
+
+# Brute Force
+
+def grid_traveller(m,n):
+    if m==1 and n==1 :
+        return 1
+    if m<0 or n<0:
+        return 0
+    return grid_traveller(m-1,n)+grid_traveller(m,n-1)
+
+#Memoization
+
+def grid_traveller(m,n,memo={}):
+    key= str(m),str(n)
+    if key in memo:
+        return memo[key]
+    if m==1 and n==1 :
+        return 1
+    if m<0 or n<0:
+        return 0
+
+    memo[key]= grid_traveller(m-1,n)+grid_traveller(m,n-1)
+    return grid_traveller(m-1,n)+grid_traveller(m,n-1)
+
+print(grid_traveller(18,18))
   
