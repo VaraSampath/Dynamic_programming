@@ -1,0 +1,13 @@
+# GRidTraveller Tabular Method
+
+def grid_traveller(m,n):
+    l=[[0]*(n+1) for _ in range(m+1)]
+    l[1][1]=1
+    for i in range(m+1):
+        for j in range(n+1):
+            cur=l[i][j]
+            if j +1<= n:l[i][j+1]+=cur
+            if i+1<=m: l[i+1][j]+=cur
+    return l[m][n]
+    
+  
