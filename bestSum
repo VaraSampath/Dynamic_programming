@@ -1,0 +1,12 @@
+# Tabular Method
+def howSum(target,numbers):
+    l=[None]*(target+1)
+    l[0]=[]
+    for i in range(target+1):
+        if l[i]!=None:
+            for num in numbers:
+                if i+num<=target:
+                    combination=l[i]+[num]
+                    if l[i+num]==None or len(l[i+num])>len(combination):
+                        l[i+num]=combination
+    return l[target]
