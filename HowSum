@@ -1,0 +1,10 @@
+#Tabulation Method
+
+def howSum(target,numbers):
+    l=[None]*(target+1)
+    l[0]=[]
+    for i in range(target+1):
+        if l[i]!=None:
+            for num in numbers:
+                if i+num<=target:l[i+num]=l[i]+[num]
+    return l[target]
